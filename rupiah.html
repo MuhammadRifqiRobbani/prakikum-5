@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Kurs Rupiah</title>
+    <script type="text/javascript">
+        var rupiah = documen.getElementById('rupiah');
+        rupiah.addEventListener('keyup', function(e) {
+            rupiah.value = formatRupiah(this.value, 'Rp. ');
+            5
+        })
+
+        function formatRupiah(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').to string(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3/gi
+                });
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <form class="form-horizontal">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>KURS RUPIAH</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nilai_dolar">Masukkan Nilai</label>
+                <div class="col-md-4">
+                    <input id="nilai_dolar" name="nilai_dolar" type="text" placeholder="Masukkan Nilai" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <!-- Select Basic -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nilai_valas">Valas</label>
+                <div class="col-md-4">
+                    <select id="nilai_valas" name="nilai_valas" class="form-control">
+              <option value="">Dollar Us</option>
+              <option value="">Dollar Singapure</option>
+              <option value="">Ringgit Malaysia</option>
+              <option value="">Yen Jepang</option>
+              <option value="">Euro</option>
+              <option value="">Riyal Arab Saudi</option>
+        </select>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nilai_rupiah">Nilai Rupiah</label>
+                <div class="col-md-4">
+                    <input id="nilai_rupiah" name="nilai_rupiah" type="text" placeholder="Rupiah" class="form-control input-md">
+
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</body>
+
+</html>
